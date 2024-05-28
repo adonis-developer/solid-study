@@ -5,12 +5,14 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from 'db/data-source';
 import { MessagesModule } from './messages/messages.module';
+import { ScheduleMsgModule } from './schedule-msg/schedule-msg.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(dataSourceOptions),
     UsersModule,
     MessagesModule,
+    ScheduleMsgModule,
   ],
   controllers: [AppController],
   providers: [AppService],
