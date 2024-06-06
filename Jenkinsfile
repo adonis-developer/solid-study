@@ -1,15 +1,6 @@
 def getEnvCode(def _git_branch){
-    if (_git_branch == "main"){
+    if (_git_branch == "[*/master]"){
         env_code = "prod"
-    }
-    else if (_git_branch == "staging") {
-        env_code = "stag"
-    }
-    else if (_git_branch == "develop") {
-        env_code = "dev"
-    }
-    else if (_git_branch == "develop2") {
-        env_code = "dev2"
     }
     else{
         env_code = "feature"
