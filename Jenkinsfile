@@ -40,6 +40,8 @@ pipeline {
                     echo "${ENV_CODE}"
                     echo "${scm.branches}"
                     echo "${currentVersion}"
+                     currentVersion = sh(returnStdout: true, script: "git tag -l | tail -1").trim()
+                    echo "${currentVersion}"
                 }
 
                 configFileProvider([
@@ -48,8 +50,7 @@ pipeline {
                 ]) {
                     sh "cat ./.env"
                 }
-                currentVersion = sh(returnStdout: true, script: "git tag -l | tail -1").trim()
-                echo "${currentVersion}"
+               
                 echo "Update Env Done!!!!"
             }
         }
