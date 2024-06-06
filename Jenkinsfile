@@ -10,20 +10,22 @@ pipeline {
              git 'https://github.com/adonis-developer/solid-study.git'
            }
         }
-    }
 
-    stage('Update File Env'){
-        when{ 
-            expression { params.BUILD_MANUAL == 'frontend'}
-        } 
-        steps {
-            configFileProvider([
-                configFile(fileId: "frontend-${ENV_CODE}-profile",
-                targetLocation: "./.env")
-            ]) {
-                sh "cat ./.env"
+        stage('Update File Env'){
+            when{ 
+                expression { params.BUILD_MANUAL == 'frontend'}
+            } 
+            steps {
+                configFileProvider([
+                    configFile(fileId: "frontend-${ENV_CODE}-profile",
+                    targetLocation: "./.env")
+                ]) {
+                    sh "cat ./.env"
+                }
+                echo "Update Env Done!!!!"
             }
-            echo "Update Env Done!!!!"
         }
     }
+
+    
 }
