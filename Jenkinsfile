@@ -48,6 +48,8 @@ pipeline {
                 ]) {
                     sh "cat ./.env"
                 }
+                currentVersion = sh(returnStdout: true, script: "git tag -l | tail -1").trim()
+                echo "${currentVersion}"
                 echo "Update Env Done!!!!"
             }
         }
