@@ -1,5 +1,5 @@
 def getEnvCode(def _git_branch){
-    if (_git_branch == "[*/master]"){
+    if (_git_branch == "master"){
         env_code = "prod"
     }
     else{
@@ -27,7 +27,7 @@ pipeline {
             } 
             steps {
                 script {
-                    env.ENV_CODE = getEnvCode(env.BRANCH_NAME)
+                    env.ENV_CODE = getEnvCode(scm.branches)
                     echo "${ENV_CODE}"
                     echo "${scm.branches}"
                      currentVersion = sh(returnStdout: true, script: "git tag -l | tail -1").trim()
