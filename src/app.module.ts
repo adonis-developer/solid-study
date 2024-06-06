@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from 'db/data-source';
 import { MessagesModule } from './messages/messages.module';
 import { ScheduleMsgModule } from './schedule-msg/schedule-msg.module';
+import { ConversationModule } from './conversation/conversation.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ScheduleMsgModule } from './schedule-msg/schedule-msg.module';
     UsersModule,
     MessagesModule,
     ScheduleMsgModule,
+    ConversationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
