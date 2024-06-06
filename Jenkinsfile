@@ -39,7 +39,6 @@ pipeline {
                     env.ENV_CODE = getEnvCode(env.BRANCH_NAME)
                     echo "${ENV_CODE}"
                     echo "${scm.branches}"
-                    echo "${currentVersion}"
                      currentVersion = sh(returnStdout: true, script: "git tag -l | tail -1").trim()
                     echo "${currentVersion}"
                 }
