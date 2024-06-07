@@ -35,8 +35,7 @@ pipeline {
                 }
 
                 configFileProvider([
-                    configFile(fileId: "frontend-${ENV_CODE}-profile",
-                    targetLocation: "./.env")
+                    configFile(fileId: "frontend-${ENV_CODE}-profile", targetLocation: "./.env")
                 ]) {
                     sh "cat ./.env"
                 }
