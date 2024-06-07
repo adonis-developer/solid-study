@@ -10,6 +10,9 @@ def getEnvCode(def _git_branch){
 
 pipeline {
     agent any
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
     parameters {
         string(name: 'SLEEP_TIME_IN_SECONDS', defaultValue: '10', description: 'The waiting time to Sonar server perform analysis')
         string(name: 'BUILD_MANUAL', defaultValue: 'Name-Service', description: 'Enter the Name Service')
